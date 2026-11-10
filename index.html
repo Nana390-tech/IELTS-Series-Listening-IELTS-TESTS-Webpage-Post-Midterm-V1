@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post-Midterm Listening Lab</title>
+<style>
+:root{--night:#1b1035;--night2:#2a1a52;--sun:#ffcf3f;--sun2:#ff9f43;--ink:#22183d;--paper:#fbf8ff;--muted:#6a5f86;--line:#e7e1f3}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;font-size:18px;line-height:1.6;color:var(--ink);background:var(--paper);overflow-x:hidden}
+.ar{display:none;font-family:'Segoe UI',Tahoma,'Geeza Pro','Noto Sans Arabic',sans-serif;direction:rtl;text-align:right;font-size:.92em;line-height:1.8;opacity:.92}
+body.ar-on .ar{display:block}
+a{color:inherit}
+/* ---------- hero ---------- */
+.hero{position:relative;background:radial-gradient(circle at 80% 10%,#4b2a8a 0,transparent 45%),linear-gradient(160deg,var(--night),var(--night2));color:#fff;padding:26px 18px 120px;overflow:hidden}
+.top{max-width:1040px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:10px;position:relative;z-index:3}
+.tag{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sun);font-weight:700}
+.arb{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:999px;padding:6px 14px;font-weight:700;cursor:pointer;font-size:1rem}
+body.ar-on .arb{background:var(--sun);color:var(--night);border-color:var(--sun)}
+.hin{max-width:1040px;margin:26px auto 0;display:grid;grid-template-columns:1.25fr .75fr;gap:20px;align-items:center;position:relative;z-index:3}
+h1{font-size:clamp(2rem,5.4vw,3.4rem);line-height:1.08;margin:0 0 10px}
+h1 .hl{background:linear-gradient(90deg,var(--sun),var(--sun2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:1.1rem;opacity:.9;max-width:560px}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:8px 14px;font-size:.9rem}
+.stat b{color:var(--sun);font-size:1.25rem;margin-right:4px}
+.cta{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:var(--sun);color:var(--night);font-weight:700;text-decoration:none;border-radius:999px;padding:12px 22px;box-shadow:0 8px 24px rgba(255,207,63,.35);transition:transform .2s}
+.cta:hover{transform:translateY(-2px) scale(1.03)}
+/* headphones + equaliser */
+.phones{position:relative;display:flex;flex-direction:column;align-items:center}
+.phones svg{width:min(230px,60vw);animation:bob 3.2s ease-in-out infinite;filter:drop-shadow(0 12px 30px rgba(0,0,0,.35))}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(3deg)}}
+.eq{display:flex;gap:6px;align-items:flex-end;height:60px;margin-top:10px}
+.eq i{display:block;width:10px;border-radius:6px;background:linear-gradient(var(--sun),var(--sun2));animation:eq 1s ease-in-out infinite}
+.eq i:nth-child(2){animation-delay:.15s}.eq i:nth-child(3){animation-delay:.3s}.eq i:nth-child(4){animation-delay:.45s}.eq i:nth-child(5){animation-delay:.6s}.eq i:nth-child(6){animation-delay:.75s}.eq i:nth-child(7){animation-delay:.9s}
+@keyframes eq{0%,100%{height:12px}50%{height:58px}}
+.note{position:absolute;color:rgba(255,255,255,.35);font-size:1.6rem;animation:float 9s linear infinite;z-index:1;pointer-events:none}
+@keyframes float{0%{transform:translateY(40px) rotate(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-420px) rotate(40deg);opacity:0}}
+.wave{position:absolute;left:0;right:0;bottom:-2px;z-index:2}
+.wave svg{display:block;width:100%;height:110px}
+.wave path{animation:wv 7s ease-in-out infinite alternate}
+@keyframes wv{from{transform:translateX(0)}to{transform:translateX(-60px)}}
+/* ---------- how ---------- */
+main{max-width:1040px;margin:0 auto;padding:0 16px 40px}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:-40px 0 34px;position:relative;z-index:4}
+.step{background:#fff;border-radius:18px;padding:18px;box-shadow:0 10px 30px rgba(43,26,82,.12);border-top:6px solid var(--c)}
+.step .n{width:40px;height:40px;border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center;font-weight:800;font-size:1.1rem;margin-bottom:6px}
+.step h3{margin:0 0 4px;font-size:1.1rem}
+.step p{margin:0;color:var(--muted);font-size:.95rem}
+h2{font-size:1.7rem;margin:0 0 4px;color:var(--night)}
+.sub{color:var(--muted);margin:0 0 18px}
+/* ---------- route ---------- */
+.route{position:relative;padding-left:56px}
+.route::before{content:"";position:absolute;left:22px;top:10px;bottom:10px;width:4px;background:repeating-linear-gradient(var(--line) 0 10px,transparent 10px 20px);border-radius:4px}
+.route .fill{position:absolute;left:22px;top:10px;width:4px;height:0;background:linear-gradient(var(--sun2),#a46cff);border-radius:4px;transition:height .2s linear}
+.stop{position:relative;margin-bottom:26px;opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.stop.in{opacity:1;transform:none}
+.pin{position:absolute;left:-56px;top:16px;width:48px;height:48px;border-radius:50%;background:var(--p);color:#fff;display:grid;place-items:center;font-weight:800;font-size:1rem;box-shadow:0 0 0 6px #fff,0 6px 16px rgba(0,0,0,.18)}
+.stop.in .pin{animation:pop .5s ease}
+@keyframes pop{0%{transform:scale(.3)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
+.tc{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 12px 34px rgba(43,26,82,.1);border:1px solid var(--line)}
+.tch{background:linear-gradient(120deg,var(--p),var(--p2));color:#fff;padding:18px 22px;position:relative;overflow:hidden}
+.tch::after{content:"";position:absolute;right:-40px;top:-50px;width:170px;height:170px;border-radius:50%;background:var(--a);opacity:.35}
+.tch .k{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:700}
+.tch h3{margin:2px 0 0;font-size:1.6rem;position:relative;z-index:1}
+.tch .src{font-size:.85rem;opacity:.85;position:relative;z-index:1}
+.topics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:16px 22px 4px}
+.tp{background:var(--soft);border-radius:12px;padding:8px 10px;font-size:.88rem;line-height:1.35}
+.tp b{display:block;font-size:.72rem;color:var(--p);text-transform:uppercase;letter-spacing:.08em}
+.tp .e{font-size:1.3rem;display:block;margin-bottom:2px}
+.acts{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;padding:16px 22px 22px}
+.act{display:flex;gap:12px;align-items:center;text-decoration:none;border:2px solid var(--line);border-radius:16px;padding:12px 14px;transition:transform .2s,box-shadow .2s,border-color .2s;background:#fff}
+.act:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.1);border-color:var(--a)}
+.act .ic{flex:none;width:50px;height:50px;border-radius:14px;display:grid;place-items:center;font-size:1.5rem;background:var(--soft)}
+.act .st{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.act .nm{font-weight:700;font-size:1.05rem;color:var(--p)}
+.act .ds{font-size:.85rem;color:var(--muted)}
+.act.main{background:var(--p);border-color:var(--p)}
+.act.main .nm,.act.main .st,.act.main .ds{color:#fff}
+.act.main .ic{background:rgba(255,255,255,.18)}
+.act.main:hover{border-color:var(--a)}
+.arrow{font-size:1.6rem;color:var(--a);animation:nudge 1.4s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+.finish{text-align:center;padding:10px 0 0}
+.trophy{font-size:3.4rem;display:inline-block;animation:bob 2.6s ease-in-out infinite}
+/* ---------- tips ---------- */
+.tips{background:linear-gradient(140deg,var(--night),var(--night2));color:#fff;border-radius:24px;padding:24px;margin:30px 0;position:relative;overflow:hidden}
+.tips h2{color:#fff}
+.tipcard{min-height:110px;font-size:1.15rem;display:flex;gap:14px;align-items:flex-start}
+.tipcard .big{font-size:2.4rem;line-height:1}
+.tipcard .t{transition:opacity .35s}
+.tipnav{display:flex;gap:8px;align-items:center;margin-top:12px}
+.tipnav button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:999px;width:38px;height:38px;cursor:pointer;font-size:1rem}
+.tipdots{display:flex;gap:6px;margin-left:6px}
+.tipdots i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.3);display:block}
+.tipdots i.on{background:var(--sun)}
+.band{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:8px}
+.bandc{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;text-align:center}
+.bandc .v{font-size:1.8rem;font-weight:800;color:var(--night)}
+.bandc .k{font-size:.85rem;color:var(--muted)}
+.bandc.goal{background:linear-gradient(135deg,var(--sun),#ffe08a);border:none}
+footer{text-align:center;color:var(--muted);font-size:.88rem;padding:20px 10px 34px}
+@media(max-width:820px){.hin{grid-template-columns:1fr;text-align:center}.lead{margin:0 auto}.stats{justify-content:center}.how{grid-template-columns:1fr}.topics{grid-template-columns:repeat(2,1fr)}.acts{grid-template-columns:1fr}.arrow{transform:rotate(90deg);animation:none;text-align:center}}
+@media(max-width:520px){body{font-size:17px}.route{padding-left:44px}.route::before,.route .fill{left:16px}.pin{left:-44px;width:38px;height:38px;font-size:.85rem}.tch h3{font-size:1.3rem}.tc .topics,.tc .acts{padding-left:14px;padding-right:14px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.stop{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="hero" id="hero">
+ <div class="top"><span class="tag">LSC 0316 · IELTS Listening</span><button class="arb" id="arB" title="Arabic help">ع</button></div>
+ <div class="hin">
+  <div>
+   <h1>Post-Midterm<br><span class="hl">Listening Lab</span></h1>
+   <p class="lead">Four real IELTS listening tests. Learn the words first, then take the test, then study every trap you missed.</p>
+   <p class="ar lead">أربعة اختبارات استماع حقيقية. تعلّم الكلمات أولًا، ثم أدِّ الاختبار، ثم راجع كل فخ وقعت فيه.</p>
+   <div class="stats"><span class="stat"><b>4</b>tests</span><span class="stat"><b>8</b>activities</span><span class="stat"><b>160</b>questions</span><span class="stat"><b>6</b>target band</span></div>
+   <a class="cta" href="#route">🎧 Start the route ↓</a>
+  </div>
+  <div class="phones">
+   <svg viewBox="0 0 200 180" aria-hidden="true"><path d="M30 110V90a70 70 0 0 1 140 0v20" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round"/><rect x="14" y="98" width="42" height="64" rx="16" fill="#ffcf3f"/><rect x="144" y="98" width="42" height="64" rx="16" fill="#ff9f43"/><rect x="24" y="110" width="22" height="40" rx="9" fill="#2a1a52" opacity=".35"/><rect x="154" y="110" width="22" height="40" rx="9" fill="#2a1a52" opacity=".35"/></svg>
+   <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+ </div>
+ <div class="wave" aria-hidden="true"><svg viewBox="0 0 1440 110" preserveAspectRatio="none"><path d="M0 60 C 240 10, 480 110, 720 60 S 1200 10, 1500 60 V110 H0Z" fill="#fbf8ff"/></svg></div>
+</header>
+
+<main>
+ <section class="how">
+  <div class="step" style="--c:#7f5af0"><div class="n">1</div><h3>📚 Word Ready</h3><p>10–15 minutes. Learn the topic words, the paraphrases and the spelling.</p><p class="ar">10–15 دقيقة. تعلّم كلمات الموضوع والمرادفات والإملاء.</p></div>
+  <div class="step" style="--c:#ff9f43"><div class="n">2</div><h3>🎧 Listening Test</h3><p>About 30 minutes. Press play once per part — like the real exam.</p><p class="ar">حوالي 30 دقيقة. شغّل التسجيل مرة واحدة لكل جزء — مثل الاختبار الحقيقي.</p></div>
+  <div class="step" style="--c:#2cb67d"><div class="n">3</div><h3>🔍 Check the traps</h3><p>Read the review under every question you missed. Save your answers.</p><p class="ar">اقرأ المراجعة تحت كل سؤال أخطأت فيه. احفظ إجاباتك.</p></div>
+ </section>
+
+ <h2 id="route">Your listening route</h2>
+ <p class="sub">Do the tests in order. Each stop has two activities: <b>words first</b>, then <b>the test</b>.</p>
+ <div class="route" id="routeEl"><div class="fill" id="fill"></div><div id="stops"></div>
+  <div class="finish"><span class="trophy">🏆</span><h3 style="margin:4px 0">Route complete!</h3><p class="sub">Finished all four? Compare your bands — are you getting closer to Band 6?</p></div>
+ </div>
+
+ <section class="tips">
+  <h2>💡 Before you press play</h2>
+  <div class="tipcard"><span class="big" id="tipE">🔮</span><div class="t" id="tipT"></div></div>
+  <div class="tipnav"><button id="tPrev" aria-label="Previous tip">‹</button><button id="tNext" aria-label="Next tip">›</button><span class="tipdots" id="tipD"></span></div>
+ </section>
+
+ <h2>🎯 Your band targets</h2>
+ <p class="sub">Each test is marked out of 40. Here is what you need.</p>
+ <div class="band"><div class="bandc"><div class="v">18</div><div class="k">Band 5.5</div></div><div class="bandc goal"><div class="v">23</div><div class="k"><b>Band 6 — our goal</b></div></div><div class="bandc"><div class="v">26</div><div class="k">Band 6.5</div></div><div class="bandc"><div class="v">30</div><div class="k">Band 7</div></div></div>
+</main>
+<footer>Designed by: Nazila Motahari · Recordings and questions: <i>Cambridge IELTS 19</i>, Tests 1–4</footer>
+
+<script>
+const TESTS=[
+ {code:'10A',book:'Cambridge 19 · Test 1',p:'#4a4e69',p2:'#6d6a92',a:'#f2a65a',soft:'#f1f0f6',
+  vocab:'https://nana390-tech.github.io/IELTS-Series-Listening-IELTS-Test-10A-Vocab-Practice/',
+  test:'https://nana390-tech.github.io/IELTS-Series-Listening---IELTS-Test-10A/',
+  topics:[['🌳','A school trip to a country park'],['🗺️','Twin towns & a map'],['🍞','Food science projects'],['🏺','An ancient farm in Ireland']]},
+ {code:'10B',book:'Cambridge 19 · Test 2',p:'#12607a',p2:'#1b8aa3',a:'#c3d93b',soft:'#e8f3f6',
+  vocab:'https://nana390-tech.github.io/IELTS-Series-Listening-IELTS-Test-10B-Vocab-Practice/',
+  test:'https://nana390-tech.github.io/IELTS-Series-Listening-IELTS-Test-10B/',
+  topics:[['🎸','Joining a guitar group'],['🛟','Lifeboat volunteers'],['👟','Recycling shoes'],['🔬','Tiny animals: tardigrades']]},
+ {code:'10C',book:'Cambridge 19 · Test 3',p:'#7a2343',p2:'#a53a62',a:'#e8b93e',soft:'#f8edf1',
+  vocab:'https://nana390-tech.github.io/IELTS-Series-Listening-IELTS-Test-10C-Vocab-Practice/',
+  test:'https://nana390-tech.github.io/IELTS-Series-Listening-IELTS-Test-10C/',
+  topics:[['🦐','Local food shops'],['📖','A children’s book festival'],['🐭','A science experiment'],['🧴','Microplastics']]},
+ {code:'10D',book:'Cambridge 19 · Test 4',p:'#3f6b3a',p2:'#5a8f52',a:'#d6336c',soft:'#edf4ea',
+  vocab:'https://nana390-tech.github.io/IELTS-Series-Listening-IELTS-Test-10D-Vocab-Practice/',
+  test:'https://nana390-tech.github.io/IELTS-Series-Listening-IELTS-Test-10D/',
+  topics:[['🛒','First day at work'],['🏃‍♀️','A running club'],['📚','A second-hand bookshop'],['🌱','Tree planting']]}
+];
+document.getElementById('stops').innerHTML=TESTS.map((t,i)=>`
+ <div class="stop" style="--p:${t.p};--p2:${t.p2};--a:${t.a};--soft:${t.soft}">
+  <div class="pin">${t.code}</div>
+  <div class="tc">
+   <div class="tch"><div class="k">Stop ${i+1} of 4</div><h3>Listening Test ${t.code}</h3><div class="src">${t.book}</div></div>
+   <div class="topics">${t.topics.map(([e,x],k)=>`<div class="tp"><span class="e">${e}</span><b>Part ${k+1}</b>${x}</div>`).join('')}</div>
+   <div class="acts">
+    <a class="act" href="${t.vocab}" target="_blank" rel="noopener"><span class="ic">📚</span><span><span class="st">Step 1 · Words first</span><br><span class="nm">Word Ready ${t.code}</span><br><span class="ds">Vocabulary, paraphrases, spelling</span></span></a>
+    <span class="arrow" aria-hidden="true">➜</span>
+    <a class="act main" href="${t.test}" target="_blank" rel="noopener"><span class="ic">🎧</span><span><span class="st">Step 2 · The test</span><br><span class="nm">Listening Test ${t.code}</span><br><span class="ds">40 questions · band score</span></span></a>
+   </div>
+  </div>
+ </div>`).join('');
+
+/* reveal on scroll + route fill */
+const io=('IntersectionObserver' in window)?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.18}):null;
+document.querySelectorAll('.stop').forEach(s=>io?io.observe(s):s.classList.add('in'));
+const route=document.getElementById('routeEl'),fill=document.getElementById('fill');
+function onScroll(){const r=route.getBoundingClientRect(),vh=innerHeight;const p=Math.min(1,Math.max(0,(vh*.6-r.top)/r.height));fill.style.height=(p*(r.height-20))+'px';}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* floating music notes */
+const hero=document.getElementById('hero'),N=['♪','♫','♬','♩'];
+for(let i=0;i<14;i++){const n=document.createElement('span');n.className='note';n.textContent=N[i%4];n.style.left=(Math.random()*100)+'%';n.style.bottom=(-10-Math.random()*40)+'px';n.style.animationDelay=(-Math.random()*9)+'s';n.style.fontSize=(1+Math.random()*1.4)+'rem';hero.appendChild(n);}
+
+/* tips carousel */
+const TIPS=[
+ ['🔮','<b>Predict</b> before you listen. Is the gap a number, a name, a noun, an adjective? Is it singular or plural?','تنبّأ قبل الاستماع: هل الفراغ رقم، اسم علم، اسم، صفة؟ مفرد أم جمع؟'],
+ ['🔄','<b>Listen for paraphrase.</b> The recording rarely uses the words in the question. “Free” may be “there’s no charge”.','استمع للمرادفات. نادرًا ما يستخدم التسجيل نفس كلمات السؤال.'],
+ ['⚠️','<b>Watch for corrections.</b> “It used to be 10.30… but now it’s 11.” The answer comes after <i>but now</i>, <i>actually</i>, <i>sorry, I mean</i>.','انتبه للتصحيح: الإجابة تأتي بعد but now أو actually.'],
+ ['✍️','<b>Obey the word limit.</b> ONE WORD ONLY means one word. Extra words = wrong answer.','التزم بعدد الكلمات. كلمة إضافية = إجابة خاطئة.'],
+ ['🔤','<b>Spelling counts.</b> Names are spelled letter by letter. Check double letters and plural -s.','الإملاء مهم. انتبه للحروف المكرّرة وحرف s للجمع.'],
+ ['➡️','<b>Missed one? Move on.</b> Answers come in order. Don’t let one gap make you lose the next three.','فاتك سؤال؟ انتقل للتالي. الإجابات تأتي بالترتيب.']];
+let ti=0;const tT=document.getElementById('tipT'),tE=document.getElementById('tipE'),tD=document.getElementById('tipD');
+tD.innerHTML=TIPS.map(()=>'<i></i>').join('');
+function showTip(k){ti=(k+TIPS.length)%TIPS.length;tT.style.opacity=0;setTimeout(()=>{tE.textContent=TIPS[ti][0];tT.innerHTML=TIPS[ti][1]+`<div class="ar">${TIPS[ti][2]}</div>`;tT.style.opacity=1;},200);[...tD.children].forEach((d,j)=>d.classList.toggle('on',j===ti));}
+document.getElementById('tPrev').onclick=()=>{showTip(ti-1);restart();};document.getElementById('tNext').onclick=()=>{showTip(ti+1);restart();};
+let timer;function restart(){clearInterval(timer);timer=setInterval(()=>showTip(ti+1),7000);}
+showTip(0);restart();
+document.getElementById('arB').onclick=()=>document.body.classList.toggle('ar-on');
+</script>
+</body>
+</html>
